@@ -6,6 +6,7 @@ import NavBar from './Component/NavBar/NavBar'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import darkTheme from './Theme/DarkTheme'
+import Home from './Component/Home/Home'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <NavBar />
-      <h1>hell</h1>
+      <Home />
     </ThemeProvider>
   )
 }

@@ -4,6 +4,7 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Badge from '@mui/material/Badge';
+import "./NavBar.css"
 function NavBar() {
   return (
     <div className='px-5 z-50 py-[.8rem] bg-[#e91e63] lg:px-20 flex justify-between'>
@@ -29,8 +30,7 @@ function NavBar() {
                             <AddShoppingCartIcon sx={{ fontSize: '1.rem', cursor: 'pointer' }} />
                         </Badge>
                         
-                    </IconButton>
-                    
+                    </IconButton>         
                 </div>
                 
             </div>  

@@ -10,11 +10,11 @@ export const darkTheme = createTheme({
       main: "#5A2B8B" // Assuming a secondary color based on common UI themes
     },
     black: {
-      main: "#242424" // A common shade for black in dark themes
+      main: "#0D0D0D" // A common shade for black in dark themes
     },
     background: {
         main:"#0000000",
-      default: "#000000", // Pure black for default background
+      default: "#0D0D0D", // Pure black for default background
       paper: "#0D0D0D" // A slightly lighter black for "paper" elements
     },
     textColor: {
