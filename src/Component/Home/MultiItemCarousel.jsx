@@ -6,9 +6,18 @@ import CarouseItem from './CarouseItem';
 import { topMeet } from './topMeet';
 
 function MultiItemCarousel() {
+   const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000
+    };
   return (
     <div>
-        <Slider>
+        <Slider {...settings}>
             {topMeet.map((item) => (
                 <CarouseItem 
                     image={item.image}

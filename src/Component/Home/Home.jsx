@@ -19,6 +19,7 @@ function Home() {
 
       </section>
       <section>
+        <p className='text-2xl font-semibold '>Top meals</p>
         <MultiItemCarousel /> 
       </section>
     </div>
