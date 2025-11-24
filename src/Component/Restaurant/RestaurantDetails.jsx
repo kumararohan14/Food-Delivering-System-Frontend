@@ -11,10 +11,13 @@ import { FormControl } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import BadList from "./BadList";
+import MenuCard from "./MenuCard";
+
 function RestaurantDetails() {
   const [foodType, setFoodType] = useState("all");
   const [category, setCategory] = useState("");
+
+  const menu = [1,2,3,4,5,6,7,8,9,10];
 
   const handleFilter = (e) => {
     const { name, value } = e.target;
@@ -96,7 +99,7 @@ function RestaurantDetails() {
       <section className="pt-[2rem] lg:flex relative">
         {/* Sidebar / Filter Section */}
         <div className="space-y-10 lg:w-[20%] filter">
-          <div className="box space-y-5 lg:sticky top-28">
+          <div className="box space-y-5 lg:sticky top-28 p-5 shadow-md">
             <div>
               <Typography variant="h5" sx={{ paddingBottom: "1rem" }}>
                Food
@@ -116,6 +119,7 @@ function RestaurantDetails() {
               </FormControl>
               
             </div>
+            <Divider />
              <div>
               <Typography variant="h5" sx={{ paddingBottom: "1rem" }}>
                Food Category
@@ -138,7 +142,9 @@ function RestaurantDetails() {
         </div>
 
         {/* Main Content / Menu Section */}
-        <div className="space-y-5 lg:w-[80%] lg:pl-10">Menu Items</div>
+        <div className="space-y-5 lg:w-[80%] lg:pl-10">
+                  {menu.map((item)=>(<MenuCard />))}
+          </div>
       </section>
     </div>
   );
