@@ -1,31 +1,44 @@
-﻿import React from "react";
+﻿import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import restaurantImg from "../../assets/3394.jpg";
-import restaurantImg2 from "../../assets/R2.jpg";
-import restaurantImg3 from "../../assets/R3.png";
+import Typography from "@mui/material/Typography";
+import restaurantImg from "../../assets/food.jpg";
+import restaurantImg2 from "../../assets/food.jpg";
+import restaurantImg3 from "../../assets/food.jpg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Divider from "@mui/material/Divider";
-
+import { FormControl } from "@mui/material";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import BadList from "./BadList";
 function RestaurantDetails() {
+  const [foodType, setFoodType] = useState("all");
+  const [category, setCategory] = useState("");
+
+  const handleFilter = (e) => {
+    const { name, value } = e.target;
+    console.log(value, name);
+    if (name === "food_type") {
+      setFoodType(value);
+    } else if (name === "category") {
+      setCategory(value);
+    }
+  };
+  const categories = [
+    "pizza", 
+    "biryani", 
+    "burger",
+     "chiken", 
+     "rice"];
+  const foodTypes = [
+    { label: "All", value: "all" },
+    { label: "Vegetarian only", value: "vegetarian" },
+    { label: "Non-Vegetarian", value: "non_vegetarian" },
+    { label: "Seasonal", value: "seasonal" },
+  ];
   return (
     <div className="px-5 lg:px-20">
-      {/* <section>
-            <h3>Home / india / indian fast food / 3</h3>
-            <Grid container spacing={2}>
-                <Grid item xs={12} >
-                <img className='object-cover w-800 h-[40vh]' src={restaurantImg} alt="restaurant" />
-                </Grid>
-            
-                <Grid item xs={12} lg={6} style={{ background: 'red' }} >
-                <img className='object-cover  h-[40vh]' src={restaurantImg3} alt="restaurant" />
-                </Grid>
-                <Grid item xs={12} lg={6}>
-                <img className='object-cover w-200  h-[40vh]' src={restaurantImg2} alt="restaurant" />
-                </Grid>
-            </Grid>
-        </section> */}
-
       <section className="w-full">
         <h3 className="text-gray-500 py-2 mt-10">
           Home / india / indian fast food / 3
@@ -41,7 +54,7 @@ function RestaurantDetails() {
         </div>
 
         {/* Second row - two columns */}
-        <div className="max-w-[1200px]  grid grid-cols-1 lg:grid-cols-2 gap-2 mt-2">
+        <div className="max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-2 mt-2">
           <div className="w-full h-[40vh] bg-red-500">
             <img
               className="w-full h-full object-cover"
@@ -86,14 +99,46 @@ function RestaurantDetails() {
           <div className="box space-y-5 lg:sticky top-28">
             <div>
               <Typography variant="h5" sx={{ paddingBottom: "1rem" }}>
-                
+               Food
               </Typography>
+              <FormControl className="py-10 space-y-5" component={"fieldset"}>
+                 
+                <RadioGroup onChange={handleFilter} name="food_type" value={foodType}> {/* ai methona value kiyana eka use karala thiyenen */}
+                  {foodTypes.map((item) => (
+                    <FormControlLabel
+                      key={item.value}//menna methana podi prashnayak thiyenawa eka solve karaganna ona
+                      value={item.value}
+                      control={<Radio />}
+                      label={item.label}
+                    />
+                  ))}
+               </RadioGroup>
+              </FormControl>
+              
+            </div>
+             <div>
+              <Typography variant="h5" sx={{ paddingBottom: "1rem" }}>
+               Food Category
+              </Typography>
+              <FormControl className="py-10 space-y-5" component={"fieldset"}>
+                 
+                <RadioGroup onChange={handleFilter} name="category" value={category}> {/* ai methona value kiyana eka use karala thiyenen */}
+                  {categories.map((item) => (
+                    <FormControlLabel
+                      key={item}//menna methana podi prashnayak thiyenawa eka solve karaganna ona
+                      value={item}
+                      control={<Radio />}
+                      label={item}
+                    />
+                  ))}
+               </RadioGroup>
+              </FormControl>
             </div>
           </div>
         </div>
 
         {/* Main Content / Menu Section */}
-        <div className="space-y-5 lg:w-[80%] lg:pl-10">menu</div>
+        <div className="space-y-5 lg:w-[80%] lg:pl-10">Menu Items</div>
       </section>
     </div>
   );
