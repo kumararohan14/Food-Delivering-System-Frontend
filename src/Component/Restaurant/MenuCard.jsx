@@ -24,7 +24,7 @@ function MenuCard() {
   //         ingredients: "Bacon strips"
   //     }
   // ]
-  const handleCheckBocChange = (item) => {
+  const handleCheckBoxChange = (item) => {
     console.log(item);
   }
   const demo = [
@@ -67,7 +67,7 @@ function MenuCard() {
                 <p>{item.category}</p>
                 <FormGroup>
                   {item.ingredients.map((ingr) => (
-                    <FormControlLabel control={<Checkbox onChange={()=>handleCheckBocChange(item)}/>} label={ingr} />
+                    <FormControlLabel control={<Checkbox onChange={()=>handleCheckBoxChange(item)}/>} label={ingr} />
                   ))}
                 </FormGroup>
               </div>
