@@ -6,23 +6,23 @@ import AddLocationIcon from "@mui/icons-material/AddLocation";
 import { Card, Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { Form, Formik, validateYupSchema } from "formik";
-import TextField from '@mui/material/TextField';
+import { Form, Formik, Field, validateYupSchema } from "formik";
+import TextField from "@mui/material/TextField";
 import * as Yup from "yup";
-import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import Grid from "@mui/material/Grid";
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 function Cart() {
   const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
+    backgroundColor: "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: (theme.vars ?? theme).palette.text.secondary,
+    ...theme.applyStyles("dark", {
+      backgroundColor: "#1A2027",
+    }),
+  }));
   const style = {
     position: "absolute",
     top: "50%",
@@ -132,60 +132,64 @@ function Cart() {
               <Grid container spacing={2}>
                 <Grid size={12}>
                   <Item>
-                    <TextField
-                      error
-                      id="standard-error-helper-text"
-                      label="Error"
-                      defaultValue="Hello World"
-                      helperText="Incorrect entry."
-                      variant="standard"
-                    />
+                    <Field 
+                    as={TextField}
+                    fullWidth 
+                    label="street Address"
+                    name="fistreetAddress" 
+                     />
+                  </Item>
+                </Grid>
+                <Grid size={12}>
+                  <Item></Item>
+                </Grid>
+                <Grid size={12}>
+                  <Item>
+                   <Field 
+                    as={TextField}
+                    fullWidth 
+                    label="state"
+                    name="state" 
+                     />
                   </Item>
                 </Grid>
                 <Grid size={12}>
                   <Item>
-                    <TextField
-                      error
-                      id="standard-error-helper-text"
-                      label="Error"
-                      defaultValue="Hello World"
-                      helperText="Incorrect entry."
-                      variant="standard"
-                    />
+                    <Field 
+                    as={TextField}
+                    fullWidth 
+                    label="pincode"
+                    name="pincode" 
+                     />
                   </Item>
+                  
                 </Grid>
                 <Grid size={12}>
                   <Item>
-                    <TextField
-                      error
-                      id="standard-error-helper-text"
-                      label="Error"
-                      defaultValue="Hello World"
-                      helperText="Incorrect entry."
-                      variant="standard"
-                    />
+                    <Field 
+                    as={TextField}
+                    fullWidth 
+                    label="city"
+                    name="city" 
+                     />
+                      <Field
+   name="firstName"
+   render={({ field /* { name, value, onChange, onBlur } */ }) => (
+     <input {...field} type="text" placeholder="firstName" />
+   )}
+ />
                   </Item>
+                  
                 </Grid>
-                <Grid size={12}>
-                  <Item>
-                    <TextField
-                      error
-                      id="standard-error-helper-text"
-                      label="Error"
-                      defaultValue="Hello World"
-                      helperText="Incorrect entry."
-                      variant="standard"
-                    />
-                  </Item>
-                </Grid>
+                
               </Grid>
               <Button
-                    variant="contained"
-                    fullWidth
-                    onClick={hadleOpenAddNewAddressModal}
-                  >
-                    Add
-                  </Button>
+                variant="contained"
+                fullWidth
+                onClick={hadleOpenAddNewAddressModal}
+              >
+                Add
+              </Button>
             </Form>
           </Formik>
         </Box>
